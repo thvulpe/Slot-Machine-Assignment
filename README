@@ -1,0 +1,34 @@
+TASK 1
+
+Am creat o functie care repeta de un numar de ori deplasarea circulara a unei coloane din matricea data, pentru a imita rotirea.
+
+TASK 2
+
+Am creat cate o functie pentru cautarea fiecarui tip de combinatie castigatoare, respectiv o functie de centralizare care calculeaza raspunsul cerut prin apelul acestor functii.
+Am tratat fiecare caz de bonus in functiile corespunzatoare. Deoarece am folosit doua functii separate pentru a gasi combinatiile "X" si cele pe diagonala, a trebuit sa pun
+conditia fiecarei combinatii pe diagonala sa nu fie un "X", evitand astfel numararea dubla. Pentru a vedea daca se aplica bonusurile bazate pe numarul de simboluri distincte, am
+folosit un vector de aparitii.
+
+TASK 3
+
+M-am folosit de taskurile 1 si 2, in sensul ca am verificat pentru fiecare serie de operatii castigurile aferente si am calculat suma lor.
+
+TASK 4
+
+Am iterat prin toate simbolurile posibile pentru fiecare celula, calculand la fiecare pas castigul obtinut.
+
+TASK 5
+
+Am verificat toate combinatiile posibile de rotiri pentru fiecare combinatie de cate doua coloane si am aflat castigul maxim. La fiecare pas, inaintea alegerii unor noi coloane,
+trebuie resetate coloanele respective (care au fost rotite) la forma lor originala din matrice.
+
+TASK 6
+
+Pentru a afla drumul de cost minim, am folosit algoritmul lui Lee. A fost necesar sa creez o structura de coordonate pentru a putea utiliza o structura de tip coada, in care sa
+fie retinute celulele care urmeaza a fi vizitate. Am folosit o matrice de cost pentru a retine costul minim asociat drumului pana la o anumita celula si o matrice de vizite,
+pentru a retine celulele care au fost deja vizitate. O celula deja vizitata este vizitata din nou doar in situatia in care am gasit un drum mai scurt pana la aceasta decat cel
+anterior. Pentru a trece mai usor prin toti vecinii (dreapta, jos, stanga, sus), am folosit doi vectori de deplasare. Pentru coada, realoc mai multa memorie daca cumva numarul
+de celule retinute depaseste memoria curenta.
+
+
+In realizarea fiecarui task, am alocat dinamic toti vectorii si matricele, conform cerintei, si am eliberat memoria in urma folosirii.
