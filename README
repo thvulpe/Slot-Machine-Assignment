@@ -1,95 +1,63 @@
-# 🎰 Programming Assignment - Slot Machine Simulator
+# University Assignment: Matrix Operations & Slot Machine Simulation
 
-## 🧾 Overview
-
-This project simulates a **slot machine game** using matrix operations and evaluates results across various tasks. It includes pattern recognition, scoring, optimization, and pathfinding using BFS. The solution is **modular**, **efficient**, and tailored to meet academic requirements.
-
----
-
-## 🧩 Tasks Breakdown
-
-### 🔄 TASK 1 – Column Rotation (Reel Simulation)
-
-🔧 Implemented a function to perform **circular rotation** on a column of the matrix.
-
-- 📌 Repeats rotation a given number of times.
-- ♻️ Preserves wrap-around behavior for seamless transitions.
+**Author**: Theodor Vulpe  
+**Course**: PCLP1 (Programming)  
+**Assignment Link**: [Tema 1 - CBD (Matrix Operations)](https://ocw.cs.pub.ro/courses/programare/teme_2024/tema1_2024_cbd)
 
 ---
 
-### 🏆 TASK 2 – Detecting Winning Combinations
+## 📖 Overview
 
-🔍 Created dedicated functions to detect:
-
-- ➡️ Horizontal wins  
-- ⬇️ Vertical wins  
-- 🔀 Diagonal wins  
-- ❌ “X”-shaped wins  
-
-🎯 Centralized scoring function aggregates the above.
-
-🎁 **Bonuses:**
-
-- 🧮 Checked distinct symbols via a frequency vector.
-- 🚫 Prevented duplicate counting when patterns overlapped.
+This C project implements a **matrix manipulation system** simulating a slot machine, with features like:  
+- Circular column rotations (`Task 1`)  
+- Winning combination detection (`Task 2`)  
+- Dynamic reward calculation (`Tasks 3–5`)  
+- Minimum-path cost analysis using **Lee’s algorithm** (`Task 6`)
 
 ---
 
-### ➕ TASK 3 – Total Score Calculation
+## 🛠️ Implementation Details
 
-🧠 Used logic from Tasks 1 and 2 to:
+### 🔄 Task 1: Circular Column Rotation
 
-- 🔄 Apply a sequence of operations.
-- 💰 Evaluate matrix state after each.
-- ➗ Compute and return the total score.
+- Created a function to rotate matrix columns circularly (simulating slot machine spins)  
+- **Key Insight**: Efficiently handles repeated rotations without data loss
 
----
+### 🎰 Task 2: Winning Combination Detection
 
-### 🎨 TASK 4 – Optimal Symbol Placement
+- **Modular Design**: Separate functions for each winning pattern (lines, diagonals, "X" shapes)  
+- **Edge Cases**:  
+  - Avoided double-counting "X" patterns overlapping with diagonals  
+  - Used an appearance vector to track distinct symbols for bonus checks
 
-🧪 Brute-forced symbol replacement for each matrix cell:
+### 💰 Task 3: Reward Calculation
 
-- 🔁 Tried all valid symbols in each position.
-- 📈 Calculated new score after each trial.
-- 🥇 Tracked the **best score achieved**.
+- Leveraged `Task 1` and `Task 2` to compute total rewards after a series of rotations
 
----
+### 🔍 Task 4: Optimal Symbol Replacement
 
-### 🧠 TASK 5 – Smart Double Rotation Strategy
+- Iterated through all possible symbol replacements per cell to maximize rewards
 
-🔢 For every **pair of columns**:
+### ♻️ Task 5: Two-Column Rotation Optimization
 
-- 🔃 Tried all rotation combinations.
-- 🗂️ Reset columns between iterations.
-- 🧮 Identified the combination producing the **highest score**.
+- Tested all column-pair rotation combinations to find the maximum reward  
+- **Critical Step**: Reset columns to their original state after each evaluation
 
----
+### 🏁 Task 6: Minimum-Path Cost (Lee’s Algorithm)
 
-### 🧭 TASK 6 – Minimum Cost Path (Lee's Algorithm)
-
-🚶 Used a BFS-based method to find the **lowest-cost path**:
-
-- 🧱 Maintained a cost matrix for each cell.
-- 🔁 Revisited a cell **only** if a better path was found.
-- 📦 Used:
-  - A queue (`coada`) for BFS traversal.
-  - Direction vectors for navigating (↔️ ↑ ↓).
-- 🧠 Dynamically reallocated memory for large queues.
+- **Implementation**:  
+  - Used a coordinate queue for BFS traversal  
+  - Maintained a cost matrix to track minimum path costs  
+  - Dynamic memory allocation for matrices and queues  
+- **Optimization**: Revisited cells only if a cheaper path was found
 
 ---
 
-## ⚙️ Tech Stack
-
-- 🧑‍💻 Language: C (C99)
-- 🧱 Data Structures: Matrices, Queues, Vectors
-- 📐 Algorithms: Brute-force, Combinatorics, Lee’s (BFS with weights)
-- 🧼 Style: Modular, clean, and maintainable code
-
----
-
-## 🚀 Compile & Run
+## 🚀 How to Build & Run
 
 ```bash
-./make
-In order to run:
+# Compile the project
+make
+
+# Run the executable
 ./tema1
