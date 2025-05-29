@@ -1,56 +1,95 @@
-# University Assignment: Matrix Operations & Slot Machine Simulation
+# 🎰 Programming Assignment - Slot Machine Simulator
 
-**Author**: [Your Name]  
-**Course**: PCLP1 (Programming)  
-**Assignment Link**: [Tema 1 – CBD (Matrix Operations)](https://ocw.cs.pub.ro/courses/programare/teme_2024/tema1_2024_cbd)
+## 🧾 Overview
 
----
-
-## 📖 Overview
-
-This C project simulates a slot machine using a matrix as the game board. The main operations include rotating columns, detecting winning patterns, calculating rewards, optimizing symbol placement, and computing minimal path costs using BFS.
+This project simulates a **slot machine game** using matrix operations and evaluates results across various tasks. It includes pattern recognition, scoring, optimization, and pathfinding using BFS. The solution is **modular**, **efficient**, and tailored to meet academic requirements.
 
 ---
 
-## 🛠️ Task Breakdown
+## 🧩 Tasks Breakdown
 
-### 🔁 Task 1 – Column Rotation
+### 🔄 TASK 1 – Column Rotation (Reel Simulation)
 
-- Rotates matrix columns circularly, simulating slot machine spins.
-- Efficient logic avoids unnecessary data shifting for multiple rotations.
+🔧 Implemented a function to perform **circular rotation** on a column of the matrix.
 
-### 🏆 Task 2 – Pattern Detection
-
-- Identifies winning combinations: full rows, diagonals, and X-shapes.
-- Bonus conditions are checked using frequency analysis.
-
-### 💸 Task 3 – Reward Computation
-
-- Calculates total rewards after each rotation.
-- Combines results from Tasks 1 and 2 to evaluate outcomes.
-
-### 🧠 Task 4 – Symbol Optimization
-
-- Tests all possible replacements for individual symbols.
-- Determines the configuration that maximizes the reward after spinning.
-
-### 🔄 Task 5 – Rotation Strategy Optimization
-
-- Simulates all pairs of column rotations to find the best reward.
-- Restores the original state after each test to avoid corruption.
-
-### 📉 Task 6 – Minimum Cost Path (Lee's Algorithm)
-
-- Implements BFS to compute the minimal cost path from the first to last row.
-- Uses a dynamic matrix to store distances and prevents unnecessary revisits.
+- 📌 Repeats rotation a given number of times.
+- ♻️ Preserves wrap-around behavior for seamless transitions.
 
 ---
 
-## ⚙️ How to Build & Run
+### 🏆 TASK 2 – Detecting Winning Combinations
+
+🔍 Created dedicated functions to detect:
+
+- ➡️ Horizontal wins  
+- ⬇️ Vertical wins  
+- 🔀 Diagonal wins  
+- ❌ “X”-shaped wins  
+
+🎯 Centralized scoring function aggregates the above.
+
+🎁 **Bonuses:**
+
+- 🧮 Checked distinct symbols via a frequency vector.
+- 🚫 Prevented duplicate counting when patterns overlapped.
+
+---
+
+### ➕ TASK 3 – Total Score Calculation
+
+🧠 Used logic from Tasks 1 and 2 to:
+
+- 🔄 Apply a sequence of operations.
+- 💰 Evaluate matrix state after each.
+- ➗ Compute and return the total score.
+
+---
+
+### 🎨 TASK 4 – Optimal Symbol Placement
+
+🧪 Brute-forced symbol replacement for each matrix cell:
+
+- 🔁 Tried all valid symbols in each position.
+- 📈 Calculated new score after each trial.
+- 🥇 Tracked the **best score achieved**.
+
+---
+
+### 🧠 TASK 5 – Smart Double Rotation Strategy
+
+🔢 For every **pair of columns**:
+
+- 🔃 Tried all rotation combinations.
+- 🗂️ Reset columns between iterations.
+- 🧮 Identified the combination producing the **highest score**.
+
+---
+
+### 🧭 TASK 6 – Minimum Cost Path (Lee's Algorithm)
+
+🚶 Used a BFS-based method to find the **lowest-cost path**:
+
+- 🧱 Maintained a cost matrix for each cell.
+- 🔁 Revisited a cell **only** if a better path was found.
+- 📦 Used:
+  - A queue (`coada`) for BFS traversal.
+  - Direction vectors for navigating (↔️ ↑ ↓).
+- 🧠 Dynamically reallocated memory for large queues.
+
+---
+
+## ⚙️ Tech Stack
+
+- 🧑‍💻 Language: C (C99)
+- 🧱 Data Structures: Matrices, Queues, Vectors
+- 📐 Algorithms: Brute-force, Combinatorics, Lee’s (BFS with weights)
+- 🧼 Style: Modular, clean, and maintainable code
+
+---
+
+## 🚀 Compile & Run
 
 ```bash
-# Compile the project
-make
-
-# Run the executable
+./make
+In order to run:
 ./tema1
