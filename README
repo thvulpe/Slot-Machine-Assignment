@@ -1,34 +1,49 @@
-TASK 1
+# University Assignment: Matrix Operations & Slot Machine Simulation
+**Author**: Theodor Vulpe  
+**Course**: PCLP1 (Programming)  
+**Assignment Link**: [Tema 1 - CBD (Matrix Operations)](https://ocw.cs.pub.ro/courses/programare/teme_2024/tema1_2024_cbd)  
 
-Am creat o functie care repeta de un numar de ori deplasarea circulara a unei coloane din matricea data, pentru a imita rotirea.
+## 📖 Overview  
+This C project implements a **matrix manipulation system** simulating a slot machine, with features like:  
+- Circular column rotations (`Task 1`).  
+- Winning combination detection (`Task 2`).  
+- Dynamic reward calculation (`Tasks 3-5`).  
+- Minimum-path cost analysis using **Lee’s algorithm** (`Task 6`).  
 
-TASK 2
+---
 
-Am creat cate o functie pentru cautarea fiecarui tip de combinatie castigatoare, respectiv o functie de centralizare care calculeaza raspunsul cerut prin apelul acestor functii.
-Am tratat fiecare caz de bonus in functiile corespunzatoare. Deoarece am folosit doua functii separate pentru a gasi combinatiile "X" si cele pe diagonala, a trebuit sa pun
-conditia fiecarei combinatii pe diagonala sa nu fie un "X", evitand astfel numararea dubla. Pentru a vedea daca se aplica bonusurile bazate pe numarul de simboluri distincte, am
-folosit un vector de aparitii.
+## 🛠️ Implementation Details  
 
-TASK 3
+### 🔄 **Task 1: Circular Column Rotation**  
+- Created a function to rotate matrix columns circularly (simulating slot machine spins).  
+- **Key Insight**: Efficiently handles repeated rotations without data loss.  
 
-M-am folosit de taskurile 1 si 2, in sensul ca am verificat pentru fiecare serie de operatii castigurile aferente si am calculat suma lor.
+### 🎰 **Task 2: Winning Combination Detection**  
+- **Modular Design**: Separate functions for each winning pattern (lines, diagonals, "X" shapes).  
+- **Edge Cases**:  
+  - Avoided double-counting "X" patterns overlapping with diagonals.  
+  - Used an appearance vector to track distinct symbols for bonus checks.  
 
-TASK 4
+### 💰 **Task 3: Reward Calculation**  
+- Leveraged `Task 1` and `Task 2` to compute total rewards after a series of rotations.  
 
-Am iterat prin toate simbolurile posibile pentru fiecare celula, calculand la fiecare pas castigul obtinut.
+### 🔍 **Task 4: Optimal Symbol Replacement**  
+- Iterated through all possible symbol replacements per cell to maximize rewards.  
 
-TASK 5
+### ♻️ **Task 5: Two-Column Rotation Optimization**  
+- Tested all column-pair rotation combinations to find the maximum reward.  
+- **Critical Step**: Reset columns to their original state after each evaluation.  
 
-Am verificat toate combinatiile posibile de rotiri pentru fiecare combinatie de cate doua coloane si am aflat castigul maxim. La fiecare pas, inaintea alegerii unor noi coloane,
-trebuie resetate coloanele respective (care au fost rotite) la forma lor originala din matrice.
+### 🏁 **Task 6: Minimum-Path Cost (Lee’s Algorithm)**  
+- **Implementation**:  
+  - Used a coordinate queue for BFS traversal.  
+  - Maintained a cost matrix to track minimum path costs.  
+  - Dynamic memory allocation for matrices and queues.  
+- **Optimization**: Revisited cells only if a cheaper path was found.  
 
-TASK 6
+---
 
-Pentru a afla drumul de cost minim, am folosit algoritmul lui Lee. A fost necesar sa creez o structura de coordonate pentru a putea utiliza o structura de tip coada, in care sa
-fie retinute celulele care urmeaza a fi vizitate. Am folosit o matrice de cost pentru a retine costul minim asociat drumului pana la o anumita celula si o matrice de vizite,
-pentru a retine celulele care au fost deja vizitate. O celula deja vizitata este vizitata din nou doar in situatia in care am gasit un drum mai scurt pana la aceasta decat cel
-anterior. Pentru a trece mai usor prin toti vecinii (dreapta, jos, stanga, sus), am folosit doi vectori de deplasare. Pentru coada, realoc mai multa memorie daca cumva numarul
-de celule retinute depaseste memoria curenta.
-
-
-In realizarea fiecarui task, am alocat dinamic toti vectorii si matricele, conform cerintei, si am eliberat memoria in urma folosirii.
+## 🚀 How to Build & Run  
+1. **Compile & Run**:  
+   ```bash
+   ./make
